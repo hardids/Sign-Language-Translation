@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- Header-->
+<div class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-5 fw-bolder text-white mb-2">수어 번역 서비스</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">이미지를 업로드하여 무슨 뜻인지 확인하세요 </p>
+
+                    <form id="image_submission" class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start" action="{% url 'sign_lang:video_translate' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                            <input class="btn btn-primary btn-lg px-4 me-sm-3" name="files" type="file" id="image_selection">
+                        </fieldset>
+                    </form>
+                    
+                </div>
+            </div>
+            
+            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                {{image|safe}}
+                <img id="image_display" class="img-fluid rounded-3 my-5 col-xl-9" src={{image|safe}} alt="..." />
+                <h5 class="lead fw-normal text-white-50 mb-4">{{legend|safe}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+            
+            
+        

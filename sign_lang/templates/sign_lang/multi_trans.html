@@ -1,0 +1,166 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    .bi-plus-circle{
+        font-size: 35px;
+        line-height: 35px;
+    }
+</style>
+<!-- Header-->
+<div class="py-5">
+    <div class="container px-5">
+        <h1 class="display-5 fw-bolder mb-2">다중 이미지 번역</h1><br>
+        <p class="fw-normal text-muted mb-4">여러개의 이미지를 업로드하여 무슨 뜻인지 확인하세요 </p>
+
+        <!--입력 Form-->
+        <form id="image_submission" action="{% url 'sign_lang:multi_translate' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="row" id="nodeArea">
+                    <div class="container px-1" id="node--1">
+                        <div class="card border-0 shadow rounded-3 overflow-hidden">
+                            <div class="card-body p-0">
+                                <div class="row gx-0">
+                                    <div class="col-xl-6 text-center">
+                                        <img id="image_display--1" class="img-fluid rounded-1" src={{image|default:'https://dummyimage.com/700x350/343a40/6c757d'}} alt="..." />
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="p-4 p-md-5">
+                                            <!-- File input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="image_selection--1" name="files" type="file" data-sb-validations="required" accept=".png,.jpg,.jpeg,.PNG,.JPG"/>
+                                                <label for="image_selection--1">이미지 파일</label>
+                                                <div class="invalid-feedback" data-sb-feedback="image_selection--1:required">이미지를 업로드해주세요.</div>
+                                            </div>
+                                            <!-- Answer input-->
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="answer_label--1" name="answer" list="brow" data-sb-validations="required" />
+                                                <label for="answer_label--1">정답</label>
+                                                <datalist id="brow">
+                                                    <script>
+                                                        for(var i=65; i<=91; i+=1){
+                                                            document.write("<option value=" + String.fromCharCode(i) + ">");
+                                                        }
+                                                    </script>    
+                                                </datalist>
+                                                <div class="invalid-feedback" data-sb-feedback="answer_label--1:required">정답을 입력해주세요.</div>
+                                            </div>
+                                            <br>
+                                            <div class="text-end">
+                                                <a class="btn btn-secondary btn-normal px-4 fw-normal text-white d-grid" id="add_div--1">Add</a>
+                                            </div>
+                                                
+                                                
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </section>
+            
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-xxl-5 text-center my-5">
+                        <button class="btn btn-primary btn-lg d-grid" id="submitButton" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+
+        <script>
+            let fileSelector = document.querySelectorAll('[id^=image_selection]');
+            
+            const selectImageClickHandle = (e) =>{
+                e.preventDefault();
+
+                let id = e.target.id.split("--")[1];
+                console.log(id);
+                var tgt = e.target || window.event.srcElement,
+                    files = tgt.files;
+
+                // FileReader support
+                if (FileReader && files && files.length) {
+                    var fr = new FileReader();
+                    fr.onload = function () {
+                        document.getElementById("image_display--" + id).src = fr.result;
+                    }
+                    fr.readAsDataURL(files[0]);
+                }
+                
+            }
+            for(let i=0;i<fileSelector.length;i++){
+                fileSelector[i].addEventListener('change', selectImageClickHandle);
+            } 
+            
+        </script>
+
+        <script>
+            let addButton = document.querySelectorAll('[id^=add_div]');
+            
+            const addButtonClickHandle = (e) =>{
+                e.preventDefault();
+                
+                let id = e.target.id.split("--")[1];
+                id *= 1;
+                console.log("selected " + id);
+                
+                let appendArea = document.getElementById('nodeArea');
+                let html = document.getElementById('node--' + id);
+
+                document.getElementById('image_selection--' + id).readOnly = true;
+                document.getElementById('answer_label--' + id).readOnly = true;
+
+                let add_div = document.getElementById(e.target.id);
+                add_div.setAttribute("display", 'none');                
+
+                let cloneHtml = html.cloneNode(true);
+
+                new_image_display = "image_display--" + (id + 1);
+                new_image_selection = "image_selection--" + (id + 1);
+                new_answer_label = "answer_label--" + (id + 1);
+                new_add_div = "add_div--"  + (id + 1);
+
+                cloneHtml.id = "node--" + (id + 1);
+                appendArea.append(cloneHtml);
+                
+                document.querySelectorAll('[id^=image_display]')[id].id = new_image_display;
+                document.querySelectorAll('[id^=image_selection]')[id].id = new_image_selection;
+                document.querySelectorAll('[id^=answer_label]')[id].id = new_answer_label;
+                document.querySelectorAll('[id^=add_div]')[id].id = new_add_div;
+
+                document.getElementById(new_image_selection).readOnly = false;
+                document.getElementById(new_answer_label).readOnly = false;
+
+                document.getElementById(new_image_display).src = "https://dummyimage.com/700x350/343a40/6c757d";
+                document.getElementById(new_image_selection).value = "";
+                document.getElementById(new_image_selection).addEventListener('change', selectImageClickHandle);
+
+                document.getElementById(new_answer_label).value = "";
+
+                document.getElementById(new_add_div).setAttribute("display", "auto");  
+                document.getElementById(new_add_div).addEventListener('click',addButtonClickHandle);
+
+            }
+
+            for(let i=0;i<addButton.length;i++){
+                addButton[i].addEventListener('click',addButtonClickHandle);
+            } 
+            
+        </script>
+
+
+    </div>
+</div>
+
+{% endblock content %}
+            
+            
+        
