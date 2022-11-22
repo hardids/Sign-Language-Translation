@@ -44,8 +44,11 @@ def main(request):
         print("GET")
     print(context)
         
-    return render(request, 'sign_lang/index.html', context)       
+    return render(request, 'sign_lang/index.html', context)
 
+def model_cnn(request):
+    return render(request, 'sign_lang/model_cnn.html')
+       
 def about(request):
     return render(request, 'sign_lang/about.html')
 
