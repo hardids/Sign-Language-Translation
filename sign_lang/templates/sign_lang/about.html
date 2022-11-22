@@ -24,7 +24,7 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="{% url 'sign_lang:main' %}">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'sign_lang:model_cnn' %}">Model</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'sign_lang:about' %}">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'sign_lang:about' %}">Info</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'sign_lang:faq' %}">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Page</a>
@@ -43,10 +43,10 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xxl-6">
                             <div class="text-center my-5">
-                                <h1 class="fw-bolder mb-3">수어 번역 서비스</h1>
-                                <p class="lead fw-normal text-muted mb-4">딥러닝 기반 수어(수화) 번역 솔루션 제공
+                                <h1 class="fw-bolder mb-3">수어란?</h1>
+                                <p class="lead fw-normal text-muted mb-4">
                                 </p>
-                                <p class="fw-light text-muted mb-4" >고품질의 수어 번역 서비스를 개발함으로써 청각장애인의 정보 접근성을 개선하고, 궁극적으로는 청각장애인의 삶의 질과 사회적 참여를 높이는데 기여할 수 있습니다.
+                                <p class="fw-light text-muted mb-4" >음성 대신 손의 움직임을 포함한 신체적 신호를 이용하여 의사를 전달하는 시각 언어
                                 </p>
                             </div>
                         </div>
@@ -57,10 +57,11 @@
             <section class="py-5 bg-light" id="scroll-target">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/eng.JPG" alt="..." /></div>
                         <div class="col-lg-6">
-                            <h2 class="fw-bolder">Object Detection</h2>
-                            <p class="lead fw-normal text-muted mb-0">업로드된 동영상으로부터 손의 위치를 파악하고, <br> 이를 실시간으로 번역한다. </p>
+                            <h2 class="fw-bolder">수어</h2>
+                            <p class="lead fw-normal text-muted mb-4">
+                            <p class="lead fw-normal text-muted mb-0">손가락이나 팔로 그리는 모양, 그 위치나 이동, <br> 표정이나 입술의 움직임 등을 종합하여 행해집니다. </p>
                         </div>
                     </div>
                 </div>
@@ -69,11 +70,40 @@
             <section class="py-5">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/sign_classification.PNG" alt="..." /></div>
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/question.PNG" alt="..." /></div>
                         <div class="col-lg-6">
-                            <h2 class="fw-bolder">Image Classification</h2>
-                            <p class="lead fw-normal text-muted mb-0">업로드된 이미지로부터 어떤 글자를 의미하는지 분류한다.</p>
+                            <h2 class="fw-bolder">수화? 수어?</h2>
+                            <p class="lead fw-normal text-muted mb-4">
+                            <p class="lead fw-normal text-muted mb-0">한국수화언어법이 제정될 때 관습대로 수화라는 단어를 계속 <br> 사용하자는 의견과 언어적인 측면을 고려하여 수어를 사용하자는 의견이 있었습니다. <br> 
+                                수어를 사용하자는 의견이 많아 최종적으로는 수어라는 단어를 <br> 사용하자고 결정되었지만, 수화라는 단어가 대중에게 더 익숙한 점, 커뮤니케이션 도구로 인식된다는 점 등을 토대로 수화언어, <br> 수어를 사용하게 되었습니다.</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About section three-->
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/world.png" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">수어는 전 세계 공용?</h2>
+                            <p class="lead fw-normal text-muted mb-4">
+                            <p class="lead fw-normal text-muted mb-0">각 나라의 언어와 문화가 다른 만큼 수어 역시 나라별로 다르게 사용되고 있습니다. <br> 미국과 영국은 동일한 영어를 사용하고 있지만 수어만큼은 각각 다르게 사용되고 있는데요, 음성 언어처럼 수어도 자연 발생한 <br> 
+                                만큼 각 지역에 따라서 차이를 보인다고 할 수 있습니다. <br> 물론 여러 나라의 농인들이 사용하는 국제 수어도 있습니다. <br> 
+                                한국에서는 2016년 2월 3일에 공포된 한국수화언어법에 따라 <br> 한국수어가 한국어의 뒤를 이어 2번째 법정 공용어가 되었습니다. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About section four-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/learn.png" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">간단한 수어 배워보기</h2>
+                            <p class="lead fw-normal text-muted mb-4">
+                            <p class="lead fw-normal text-muted mb-0">간단하지만 꼭 필요한 수어들을 배워봅시다.
                     </div>
                 </div>
             </section>
