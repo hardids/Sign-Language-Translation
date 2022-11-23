@@ -11370,3 +11370,15 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+.width {
+  display: flex;
+}
+
+.h-image{
+  max-width: 200px;
+}
+
+.jhscale{
+  transform:scale(1.8);
+}
