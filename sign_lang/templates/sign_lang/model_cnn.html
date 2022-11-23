@@ -2,12 +2,12 @@
 
 {% block content %}
 <!-- Header-->
-<header class="bg-dark py-5">
+<header class="py-5">
     <div class="container px-5">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xxl-6">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder text-white mb-3">수어 번역 서비스 모델</h1>
+                    <h1 class="fw-bolder mb-3">수어 번역 서비스 모델</h1>
                     <p class="lead fw-normal text-muted mb-4">딥러닝 기반 수어(수화) 번역 모델 비교
                     </p>
                     <p class="fw-light text-muted mb-4" >고품질의 수어 번역 서비스를 개발함으로써 청각장애인의 정보 접근성을 개선하고, 궁극적으로는 청각장애인의 삶의 질과 사회적 참여를 높이는데 기여할 수 있습니다.
@@ -18,70 +18,118 @@
     </div>
 </header>
 
-<!-- About section one-->
+<!-- Blog preview section-->
 <section class="py-5">
     <div class="container px-5 my-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
-            <div class="col-lg-6">
-                <h2 class="fw-bolder">MODEL1 : CNN</h2>
-                <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">모델 비교</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">모델 성능 비교</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>Machine Learning</strong></h5></a>
+                        <p class="card-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">모델 성능 비교</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>Deep Learning</strong></h5></a>
+                        <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of each card. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About section two-->
-<section class="py-5 bg-light" id="scroll-target">
-    <div class="container px-5 my-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/sign_classification.PNG" alt="..." /></div>
-            <div class="col-lg-6">
-                <h2 class="fw-bolder">MODEL2 : knn</h2>
-                <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About section three-->
 <section class="py-5">
     <div class="container px-5 my-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
-            <div class="col-lg-6">
-                <h2 class="fw-bolder">MODEL3 : RandomForest</h2>
-                <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">모델 설명</h2>
+                </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- About section four-->
-<section class="py-5 bg-light" id="scroll-target">
-    <div class="container px-5 my-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/sign_classification.PNG" alt="..." /></div>
-            <div class="col-lg-6">
-                <h2 class="fw-bolder">MODEL4 : SGDClassifier</h2>
-                <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+        <!-- About section one-->
+        <section class="py-5 bg-light" id="scroll-target">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/cnn.png" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">MODEL1 : CNN</h2>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- About section five-->
-<section class="py-5">
-    <div class="container px-5 my-5">
-        <div class="row gx-5 align-items-center">
-            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
-            <div class="col-lg-6">
-                <h2 class="fw-bolder">MODEL5 : XGBClassifier</h2>
-                <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+        <!-- About section two-->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/dnn.png" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">MODEL2 : DNN</h2>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- About section three-->
+        <section class="py-5 bg-light" id="scroll-target">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">MODEL3 : RandomForest</h2>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section four-->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/sign_classification.PNG" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">MODEL4 : SGDClassifier</h2>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section five-->
+        <section class="py-5 bg-light" id="scroll-target">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">MODEL5 : XGBClassifier</h2>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> ~~ </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </section>
-
 
 {% endblock content %}
