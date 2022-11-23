@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+
+
+{% block content %}
+
+<!-- Header-->
+<div class="py-5">
+    <div class="container px-5">
+        <h1 class="display-5 fw-bolder mb-2">단일 이미지 번역</h1><br>
+        <p class="fw-normal text-muted mb-4">이미지를 업로드하여 무슨 뜻인지 확인하세요 </p>
+
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-xl-6 col-xxl-6 d-none d-xl-block text-center">
+                <img id="image_display" class="img-fluid rounded-3 my-5 col-xl-12" src={{image|safe}} alt="..." />
+            </div>
+            <div class="col-lg-6 col-xl-7 col-xxl-6 ">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <!--예측 결과 -->
+                    <div class="card-body p-4">
+                        <div class="text-uppercase fw-bold text-muted">예측 결과</div>
+                        <div class="mb-3">
+                            <span class="display-6 fw-bold" id="result_label">{{pred|default:'-'}}</span>
+                            <span class="text-muted" id="result_prob">{{prob|default:'0.000'}}</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-tag"></i>
+                                <a id="answer_label"><strong>정답 : {{answer|default:'-'}}</strong></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--입력 Form-->
+                    <form id="image_submission" action="{% url 'sign_lang:single_translate' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- File input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="image_selection" name="files" type="file" data-sb-validations="required" accept=".png,.jpg,.jpeg,.PNG,.JPG"/>
+                            <label for="image_selection">이미지 파일</label>
+                            <div class="invalid-feedback" data-sb-feedback="image_selection:required">이미지를 업로드해주세요.</div>
+                        </div>
+                        <!-- Answer input-->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="answer_label" name="answer" list="brow" data-sb-validations="required" />
+                            <label for="answer_label">정답</label>
+                            <datalist id="brow">
+                                <script>
+                                    for(var i=65; i<=91; i+=1){
+                                        document.write("<option value=" + String.fromCharCode(i) + ">");
+                                    }
+                                </script>    
+                            </datalist>
+                            <div class="invalid-feedback" data-sb-feedback="answer_label:required">정답을 입력해주세요.</div>
+                        </div>
+                        
+                        <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                    </form>
+                </div>
+                
+
+                
+                <script>
+                    document.getElementById('image_selection').onchange = function (evt) {
+                        var tgt = evt.target || window.event.srcElement,
+                            files = tgt.files;
+
+                        let pred = document.getElementById("result_label");
+                        pred.innerText="-"; 
+
+                        let prob = document.getElementById("result_prob");
+                        prob.innerText="0.000"; 
+
+                        let answer = document.getElementById("answer_label");
+                        answer.innerText="-"; 
+                        
+                        // FileReader support
+                        if (FileReader && files && files.length) {
+                            var fr = new FileReader();
+                            fr.onload = function () {
+                                document.getElementById("image_display").src = fr.result;
+                            }
+                            fr.readAsDataURL(files[0]);
+                        }
+                    }
+  
+                </script>
+
+
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+            
+            
+        

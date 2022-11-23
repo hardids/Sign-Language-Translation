@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<!-- Header-->
+<div class="py-5">
+    <div class="container px-5">
+        <h1 class="display-5 fw-bolder mb-2">다중 이미지 번역 결과</h1><br>
+        <p class="fw-normal text-muted mb-4">각각의 이미지에 대한 예측 결과입니다. </p>
+
+        <div id="image_submission" enctype="multipart/form-data">
+
+        <!-- Blog preview section-->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+    
+                
+                <div class="row gx-5">
+                    {% for p in predicts %}
+                        <div class='col-lg-4 mb-5'>
+                            <div class='card h-100 shadow border-0'>
+                                <img class='card-img-top' src={{p.image}}/>
+                                <div class='card-body p-4'>
+                                    <a class='text-decoration-none link-dark stretched-link'>
+                                        <h5 class='card-title mb-3'><strong>예측 : {{p.pred}} ({{p.prob}})</strong></h5>
+                                    </a>
+                                    <p class='card-text mb-0'>정답 : {{p.answer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+
+            </div>
+        </section>
+        
+    </div>
+</div>
+
+{% endblock content %}
+            
+            
+        

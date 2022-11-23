@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-5 fw-bolder text-white mb-2">수어란?</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">음성 대신 손의 움직임을 포함한 신체적 신호를 이용하여<br> 의사를 전달하는 시각 언어입니다.<br><br>
+                        손가락이나 팔로 그리는 모양, 그 위치나 이동, 표정이나 입술의 움직임 등을 종합하여 행해집니다.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="/static/assets/eng.jpg" alt="..." /></div>
+        </div>
+    </div>
+</header>
+<!-- About section one-->
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-4 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/question.png" alt="..." /></div>
+            <div class="col-lg-8">
+                <h2 class="fw-bolder">수화? 수어?</h2><br>
+                <p class="lead fw-normal text-muted mb-0">한국수화언어법이 제정될 때 관습대로 수화라는 단어를 계속 사용하자는 의견과 
+                    <br> 언어적인 측면을 고려하여 수어를 사용하자는 의견이 있었습니다. <br><br>
+                    수어를 사용하자는 의견이 많아 최종적으로는 수어라는 단어를 사용하자고 결정되었지만, 수화라는 단어가 대중에게 더 익숙한 점, 커뮤니케이션 도구로 인식된다는 점 등을 토대로 수화언어, 수어를 사용하게 되었습니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About section two-->
+<section class="py-5 bg-light" id="scroll-target">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-5"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/world.png" alt="..." /></div>
+            <div class="col-lg-7">
+                <h2 class="fw-bolder">수어는 전 세계 공용?</h2><br>
+                <p class="lead fw-normal text-muted mb-0">각 나라의 언어와 문화가 다른 만큼 수어 역시 나라별로 다릅니다. <br> 미국과 영국은 동일한 영어를 사용하고 있지만, 수어만큼은 각각 다르게 사용되고 있는데요. 음성 언어처럼 수어도 자연 발생한 만큼 각 지역에 따라서 차이를 보인다고 할 수 있습니다. 
+                    물론 여러 나라의 농인들이 함께 대화할 수 있는 국제 수어도 있습니다. <br><br> 한국에서는 2016년 2월에 공포된 한국수화언어법에 따라 <br> 한국 수화가 한국어의 뒤를 이어 2번째 법정 공용어가 되었습니다. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Blog preview section-->
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">제공하는 서비스</h2>
+                    <p class="lead fw-normal text-muted mb-5">KT AIVLE School 15조가 개발한 서비스들을 둘러보세요!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5" OnClick="location.href ='{% url 'sign_lang:single_translate' %}'">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Translate</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>단일 이미지 번역</strong></h5></a>
+                        <p class="card-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5" OnClick="location.href ='{% url 'sign_lang:multi_translate' %}'">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Translate</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>다중 이미지 번역</strong></h5></a>
+                        <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of each card. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5" OnClick="location.href ='{% url 'sign_lang:learn' %}'">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Learning</div>
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>간단한 수어 배우기</strong></h5></a>
+                        <p class="card-text mb-0">Some more quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}
