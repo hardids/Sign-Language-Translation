@@ -11373,7 +11373,6 @@ html {
 
 .width {
   display: flex;
-  margin-left: 100px; 
 }
 
 .h-image{
@@ -11382,9 +11381,4 @@ html {
 
 .jhscale{
   transform:scale(1.8);
-}
-
-.justify-content-center2 {
-  justify-content: center !important;
-  justify-content: space-between;
 }
