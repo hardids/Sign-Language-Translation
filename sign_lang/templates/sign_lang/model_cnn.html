@@ -24,7 +24,7 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
-                    <h2 class="fw-bolder">모델 비교</h2>
+                    <h2 class="fw-bolder">모델 설명</h2>
                 </div>
             </div>
         </div>
@@ -32,32 +32,32 @@
         <div class="row gx-5">
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/static/assets/lstm.png" alt="..." />
+                    <img class="card-img-top" src="/static/assets/temp.PNG" alt="..." />
                     <div class="card-body p-4">
                         <div class="badge bg-primary bg-gradient rounded-pill mb-2">Deep Learning</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>LSTM</strong></h5></a>
-                        <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of each card. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">순환 신경망(RNN) 기법의 하나로 셀, 입력 게이트, 출력 게이트, 망각 게이트를 이용해 기존 순환 신경망의 문제인 기울기 소멸 문제를 방지하도록 개발되었다.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/static/assets/dnn.png" alt="..." />
+                    <img class="card-img-top" src="/static/assets/temp.PNG" alt="..." />
                     <div class="card-body p-4">
                         <div class="badge bg-primary bg-gradient rounded-pill mb-2">Deep Learning</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>DNN</strong></h5></a>
-                        <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of each card. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">DNN(Deep Neural Network)은 입력층과 출력층 사이에 다중의 은닉층을 포함하는 인공 신경망이다.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 mb-5" OnClick="location.href ='{% url 'sign_lang:learn' %}'">
+            <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/static/assets/cnn.png" alt="..." />
+                    <img class="card-img-top" src="/static/assets/temp.PNG" alt="..." />
                     <div class="card-body p-4">
                         <div class="badge bg-primary bg-gradient rounded-pill mb-2">Deep Learning</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>CNN</strong></h5></a>
-                        <p class="card-text mb-0">Some more quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">CNN은 2차원 데이터의 학습에 적합한 구조를 가지고 있으며, 역전달을 통해 훈련될 수 있다. 영상 내 객체 분류, 객체 탐지 등 다양한 응용 분야에 폭넓게 활용된다.</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
-                    <h2 class="fw-bolder">모델 설명</h2>
+                    <h2 class="fw-bolder">모델 비교</h2>
                 </div>
             </div>
         </div>
@@ -81,10 +81,10 @@
         <section class="py-5">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/a.png" alt="..." /></div>
+                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/lstm.png" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL1 : LSTM</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.9400 <br> 학습 데이터 : 기본 이미지 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.9400 <br> 학습 데이터 : 기본 이미지 <br> 설명 : </p>
                     </div>
                 </div>
             </div>
@@ -94,10 +94,10 @@
         <section class="py-5 bg-light" id="scroll-target">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/l.png" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/dnn.png" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL2 : DNN</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.9818 <br> 학습 데이터 : 기본 이미지 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.9818 <br> 학습 데이터 : 기본 이미지 <br> 설명 : </p>
                     </div>
                 </div>
             </div>
@@ -107,10 +107,10 @@
         <section class="py-5">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/v.png" alt="..." /></div>
+                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/cnn.png" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL3 : CNN</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 1.0 <br> 학습 데이터 : 기본 이미지 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 1.0 <br> 학습 데이터 : 기본 이미지 <br> 설명 : </p>
                     </div>
                 </div>
             </div>
@@ -120,10 +120,10 @@
         <section class="py-5 bg-light" id="scroll-target">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/yumin_hand.PNG" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/pic_cnn.png" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL4 : CNN</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 <br> 설명 : </p>
                     </div>
                 </div>
             </div>
@@ -133,10 +133,10 @@
         <section class="py-5">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/sign_classification.PNG" alt="..." /></div>
+                    <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/gray_cnn.PNG" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL5 : CNN</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 + 명암 조절 + 회전 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 + 명암 조절 <br> 설명 : </p>
                     </div>
                 </div>
             </div>
@@ -146,10 +146,10 @@
         <section class="py-5 bg-light" id="scroll-target">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/hand_detection.PNG" alt="..." /></div>
+                    <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/final_cnn.PNG" alt="..." /></div>
                     <div class="col-lg-6">
                         <h2 class="fw-bolder">MODEL6 : CNN</h2>
-                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 + 명암 조절 + 회전 + 노이즈 제거 </p>
+                        <p class="lead fw-normal text-muted mb-0">정확도 : 0.99 <br> 학습 데이터 : 직접 찍은 사진 + 명암 조절 + 노이즈 제거 <br> 설명 :  </p>
                     </div>
                 </div>
             </div>
