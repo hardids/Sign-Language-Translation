@@ -73,7 +73,6 @@ def multi_translate(request):
             img_obj = ImageObject()
             img_obj.filename = str(f)
 
-            img_obj.answer = a
             img_obj.image = f
             img_obj.created = timezone.datetime.now()
             img_obj.version = model_obj
