@@ -7,12 +7,7 @@ from django.utils import timezone
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .translate import Translator
-
-MODEL_NAME = "cnn-epoch-50-batch-32-trial-001.h5"
-MODEL_TYPE = "CNN"
-
-translator = Translator(model_name=MODEL_NAME, model_type=MODEL_TYPE)
+from .translate import *
 
 def home(request):
     return render(request, 'sign_lang/home.html')
@@ -20,6 +15,12 @@ def home(request):
 def translate(request):
     return render(request, 'sign_lang/trans.html')
 
+
+def get_translator():
+    model_obj = Model.objects.filter(is_active=True)[0]
+    print(model_obj.model.path)
+    return model_obj, load(model_obj.model.path, model_type=model_obj.type)
+        
 def single_translate(request):
     context = {}
     file = None
@@ -28,16 +29,21 @@ def single_translate(request):
         file = request.FILES['files']
         answer = request.POST.get('answer').lower()
         
+        model_obj, translator = get_translator()
+        
         img_obj = ImageObject()
         img_obj.filename = str(file)
 
-        img_obj.answer = answer
         img_obj.image = file
+        img_obj.version = model_obj
         img_obj.created = timezone.datetime.now()
+        
+        print("Version", str(model_obj))
         img_obj.save()
         
-        label, prob = translator.predict(img_path=img_obj.image.path)
+        label, prob = predict(translator, img_path=img_obj.image.path)
         img_obj.label = label
+        img_obj.answer = 1 if answer == label else 0
         img_obj.save()
         
         context['image'] = os.sep + f"{os.sep}".join(img_obj.image.path.split(os.sep)[-3:])
@@ -47,8 +53,6 @@ def single_translate(request):
         
     else:
         context['image'] = "/static/assets/dummy_600_400.png"
-        
-        print("GET")
         
     return render(request, 'sign_lang/single_trans.html', context)       
 
@@ -61,8 +65,10 @@ def multi_translate(request):
         answers = list(map(lambda x: x.upper(), request.POST.getlist('answer')))
                 
         image_paths = []
-        preds, probs = [], []        
+        preds, probs = [], []    
         
+        model_obj, translator = get_translator()
+    
         for f, a in zip(files, answers):
             img_obj = ImageObject()
             img_obj.filename = str(f)
@@ -70,11 +76,13 @@ def multi_translate(request):
             img_obj.answer = a
             img_obj.image = f
             img_obj.created = timezone.datetime.now()
+            img_obj.version = model_obj
             img_obj.save()
             
             print(img_obj.image.path)
-            label, prob = translator.predict(img_path=img_obj.image.path)
+            label, prob = predict(translator, img_path=img_obj.image.path)
             img_obj.label = label
+            img_obj.answer = 1 if a == label else 0
             img_obj.save()
             
             img_relative_path = os.sep + f"{os.sep}".join(img_obj.image.path.split(os.sep)[-3:])
