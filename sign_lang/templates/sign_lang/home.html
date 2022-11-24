@@ -4,30 +4,47 @@
 <!-- Header-->
 <header class="bg-dark py-5">
     <div class="container px-5">
+        <div class="row justify-content-center ">
+            <div class="">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder text-white mb-3">수어 번역 서비스</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">딥러닝 기반 수어(수화) 번역 솔루션 제공
+                    </p>
+                    <p class="fw-light text-white-50 mb-4" >고품질의 수어 번역 서비스를 개발함으로써 청각장애인의 정보 접근성을 개선하고, <br> 궁극적으로는 청각장애인의 삶의 질과 사회적 참여를 높이는데 기여할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--Section-->
+<section class="py-5">
+    <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center">
             <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="my-5 text-center text-xl-start">
-                    <h1 class="display-5 fw-bolder text-white mb-2">수어란?</h1>
-                    <p class="lead fw-normal text-white-50 mb-4">음성 대신 손의 움직임을 포함한 신체적 신호를 이용하여<br> 의사를 전달하는 시각 언어입니다.<br><br>
+                    <h1 class="display-5 fw-bolder mb-2">수어란?</h1>
+                    <p class="lead fw-normal mb-4">음성 대신 손의 움직임을 포함한 신체적 신호를 이용하여<br> 의사를 전달하는 시각 언어입니다.<br><br>
                         손가락이나 팔로 그리는 모양, 그 위치나 이동, 표정이나 입술의 움직임 등을 종합하여 행해집니다.</p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                     </div>
                 </div>
             </div>
-            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="/static/assets/eng.jpg" alt="..." /></div>
+            <div class="col-xl-4 col-xxl-5 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="/static/assets/eng.jpg" alt="..." /></div>
         </div>
     </div>
-</header>
+</section>
 <!-- About section one-->
-<section class="py-5">
+<section class="py-5 bg-light" id="scroll-target">
     <div class="container px-5 my-5">
         <div class="row gx-5 align-items-center">
-            <div class="col-lg-4 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/question.png" alt="..." /></div>
+            <div class="col-lg-3 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="/static/assets/question.png" alt="..." /></div>
             <div class="col-lg-8">
                 <h2 class="fw-bolder">수화? 수어?</h2><br>
                 <p class="lead fw-normal text-muted mb-0">한국수화언어법이 제정될 때 관습대로 수화라는 단어를 계속 사용하자는 의견과 
                     <br> 언어적인 측면을 고려하여 수어를 사용하자는 의견이 있었습니다. <br><br>
-                    수어를 사용하자는 의견이 많아 최종적으로는 수어라는 단어를 사용하자고 결정되었지만, 수화라는 단어가 대중에게 더 익숙한 점, 커뮤니케이션 도구로 인식된다는 점 등을 토대로 수화언어, 수어를 사용하게 되었습니다.</p>
+                    수어를 사용하자는 의견이 많아 최종적으로는 수어라는 단어를 사용하자고  <br> 결정되었지만, 수화라는 단어가 대중에게 더 익숙한 점, <br> 커뮤니케이션 도구로 인식된다는 점 등을 토대로 수화언어, 수어를 사용하게 되었습니다.</p>
             </div>
         </div>
     </div>
@@ -65,20 +82,18 @@
                 <div class="card h-100 shadow border-0">
                     <img class="card-img-top" src="/static/assets/single_trans.PNG" alt="..." />
                     <div class="card-body p-4">
-                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Translate</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>단일 이미지 번역</strong></h5></a>
-                        <p class="card-text mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">하나의 이미지를 업로드하여 결과를 확인해보세요.</p>
                     </div>
     
                 </div>
             </div>
             <div class="col-lg-4 mb-5" OnClick="location.href ='{% url 'sign_lang:multi_translate' %}'">
                 <div class="card h-100 shadow border-0">
-                    <img class="card-img-top" src="/static/assets/multi_trans_resize.png" alt="..." />
+                    <img class="card-img-top" src="/static/assets/multi_trans.png" alt="..." />
                     <div class="card-body p-4">
-                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Translate</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>다중 이미지 번역</strong></h5></a>
-                        <p class="card-text mb-0">This text is a bit longer to illustrate the adaptive height of each card. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">여러장의 이미지를 업로드하여 결과를 확인해보세요.</p>
                     </div>
                 </div>
             </div>
@@ -86,9 +101,8 @@
                 <div class="card h-100 shadow border-0">
                     <img class="card-img-top" src="/static/assets/learn1_resize.png" alt="..." />
                     <div class="card-body p-4">
-                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Learning</div>
                         <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><strong>간단한 수어 배우기</strong></h5></a>
-                        <p class="card-text mb-0">Some more quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text mb-0">일상 속 간단한 수어를 배워보세요.</p>
                     </div>
                 </div>
             </div>
