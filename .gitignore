@@ -3,7 +3,6 @@ __pycache__
 */*/__pycache__
 
 media/
-*/migrations/
+*/migrations/*
 
 media/images/*
-db.sqlite3
