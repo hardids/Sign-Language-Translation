@@ -6,3 +6,4 @@ Django==3.2
 django-phonenumber-field
 django-phonenumbers
 djangorestframework
+scikit-learn
