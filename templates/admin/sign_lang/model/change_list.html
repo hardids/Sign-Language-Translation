@@ -12,99 +12,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const ctx = document.getElementById('BarChart').getContext('2d');
-  var labels = {{ labels | safe }}
-  var values = {{ values | safe }}
-  console.log(labels, values)
 
-  var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: "Accuracy",
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        data: values,
-      }],
-    },
-    options: {
-      maintainAspectRatio: false,
-      layout: {
-        padding: {
-          left: 10,
-          right: 25,
-          top: 25,
-          bottom: 0
-        }
-      },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            display: true,
-          },
-          ticks: {
-            maxTicksLimit: labels.length,
-            callback: function(value, index, values) {
-                return 'version ' + value + '';
-            }
-          },
-          maxBarThickness: 50,
-        }],
-        yAxes: [{
-            ticks: {
-                min: 0,
-                max: 100,
-                maxTicksLimit: 10,
-                padding: 20,
-                callback: function(value, index, values) {
-                    return value + '%';
-                }
-              },
-            gridLines: {
-                display: true,
-            }
-        }],
-      },
-      legend: {
-        display: false
-      },
-      tooltips: {
-        titleMarginBottom: 10,
-        titleFontColor: '#6e707e',
-        titleFontSize: 14,
-        backgroundColor: "rgb(255,255,255)",
-        bodyFontColor: "#858796",
-        borderColor: '#dddfeb',
-        borderWidth: 1,
-        xPadding: 15,
-        yPadding: 15,
-        displayColors: false,
-        caretPadding: 10,
-        callbacks: {
-          label: function(tooltipItem, chart) {
-            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-            return datasetLabel + ': ' + tooltipItem.yLabel + " %";
-          }
-        }
-      },
-    }
-  });
-  myBarChart.render(); 
-});
-
-</script>
-
-<script>
-
-    $("#action-toggle").click(function() {
-        alert("Submit button is clicked!");
-    });
-    
-</script>
 
 {% endblock %}
 
@@ -116,11 +24,110 @@ document.addEventListener('DOMContentLoaded', () => {
             <canvas id="BarChart"></canvas>
         </div>
         <div class="col-xl-6">
-            <canvas id="BarChart2"></canvas>
+            <canvas id="selectedBarChart"></canvas>
         </div>
     </div>
 </div>
 <!-- Render the rest of the ChangeList view -->
 {{ block.super }}
+
+<script>
+  let checkbox = document.getElementsByName("_selected_action");
+  function drawChart(){
+      const ctx = document.getElementById('BarChart').getContext('2d');
+      var context = {{ context | safe }}
+    
+      var labels = new Array();
+      var values = new Array();
+      for(let i=0;i<context.length;i++){
+          labels.push(context[i]['label']);
+          values.push(context[i]['value']);
+        
+      }
+  
+      var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+          labels: labels,
+          datasets: [{
+              label: "Accuracy",
+              backgroundColor: "#4e73df",
+              hoverBackgroundColor: "#2e59d9",
+              borderColor: "#4e73df",
+              data: values,
+          }],
+          },
+          options: {
+          maintainAspectRatio: false,
+          layout: {
+              padding: {
+              left: 10,
+              right: 25,
+              top: 25,
+              bottom: 0
+              }
+          },
+          scales: {
+              xAxes: [{
+              gridLines: {
+                  display: true,
+              },
+              ticks: {
+                  maxTicksLimit: labels.length,
+                  callback: function(value, index, values) {
+                      return 'version ' + value + '';
+                  }
+              },
+              maxBarThickness: 50,
+              }],
+              yAxes: [{
+                  ticks: {
+                      min: 0,
+                      max: 100,
+                      maxTicksLimit: 10,
+                      padding: 20,
+                      callback: function(value, index, values) {
+                          return value + '%';
+                      }
+                  },
+                  gridLines: {
+                      display: true,
+                  }
+              }],
+          },
+          legend: {
+              display: false
+          },
+          tooltips: {
+              titleMarginBottom: 10,
+              titleFontColor: '#6e707e',
+              titleFontSize: 14,
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+              callbacks: {
+              label: function(tooltipItem, chart) {
+                  var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                  return datasetLabel + ': ' + tooltipItem.yLabel + " %";
+              }
+              }
+          },
+          }
+    });
+    myBarChart.render(); 
+  
+  }
+
+  console.log(checkbox.length);
+  {% comment %} for(let i=0;i<checkbox.length;i++){
+      checkbox[i].addEventListener('click', drawChart)
+  } {% endcomment %}
+  document.addEventListener('DOMContentLoaded', drawChart);
+  </script>
 {% endblock %}
 
