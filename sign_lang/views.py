@@ -15,7 +15,6 @@ def home(request):
 def translate(request):
     return render(request, 'sign_lang/trans.html')
 
-
 def get_translator():
     model_obj = Model.objects.filter(is_active=True)[0]
     print(model_obj.model.path)
@@ -41,7 +40,7 @@ def single_translate(request):
         print("Version", str(model_obj))
         img_obj.save()
         
-        label, prob = predict(translator, img_path=img_obj.image.path)
+        label, prob = predict(translator, model_obj.type, img_path=img_obj.image.path)
         img_obj.label = label
         img_obj.answer = 1 if answer == label else 0
         img_obj.save()
@@ -79,7 +78,7 @@ def multi_translate(request):
             img_obj.save()
             
             print(img_obj.image.path)
-            label, prob = predict(translator, img_path=img_obj.image.path)
+            label, prob = predict(translator, model_obj.type, img_path=img_obj.image.path)
             img_obj.label = label
             img_obj.answer = 1 if a == label else 0
             img_obj.save()
