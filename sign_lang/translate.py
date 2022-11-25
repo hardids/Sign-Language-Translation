@@ -2,11 +2,7 @@ import cv2
 import joblib
 import string
 import numpy as np
-import os
-from .models import *
-from pathlib import Path
 
-from django.conf import settings
 from keras.models import load_model
 
 CLASSES = list(string.ascii_lowercase)
@@ -45,10 +41,13 @@ def predict(model, model_type, img_path, height=HEIGHT, width=WIDTH):
     return CLASS_MAP[pred], prob
 
 def ml_predict(model, img):
-    X = np.array(img).flatten().reshape(-1, 1)
-    
-    pred = model.predict(X)
-    prob = np.max(pred, axis=1)[0]
-    pred = np.argmax(pred, axis=1)[0]
+    X = np.array(img).flatten().reshape(1, -1)
+    try:
+        pred = model.predict_proba(X)
+        prob = np.max(pred, axis=1)[0]
+        pred = np.argmax(pred, axis=1)[0]
+    except:
+        pred = model.predict(X)[0]
+        prob = 1.0
         
     return CLASS_MAP[pred], prob
