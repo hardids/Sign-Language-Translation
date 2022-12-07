@@ -79,7 +79,7 @@ KT AIVLE School 2기 미니프로젝트 7차 프로젝트
    <tr>
     <td align="center"><a href="https://github.com/JoJinho333"><img src="https://user-images.githubusercontent.com/28510311/203900954-2af43bff-83cf-4b83-9b5d-5606b2ed45df.jpg" width="140" height="170"><br /><sub><b>Jinho Cho</b></sub></td>
     <td align="center"><a href="https://github.com/cjhh0797"><img src="https://user-images.githubusercontent.com/28510311/203901773-22332922-0c31-40da-b905-74bbb458e771.jpg" width="140" height="170"><br /><sub><b>Jaehyeok Choi</b></sub></td>
-    <td align="center"><a href="https://github.com/dearddyd"><img src="https://dummyimage.com/140x170/636363/e3e3e3" width="140" height="170"><br/><sub><b>Jaeyoon Hwang</b></sub></td>
+    <td align="center"><a href="https://github.com/dearddyd"><img src="https://user-images.githubusercontent.com/28510311/206063854-7b9db8a2-5539-4885-95af-db50e3f8aefc.jpg" width="130" height="170"><br/><sub><b>Jaeyoon Hwang</b></sub></td>
     <td align="center"></td>
   </tr>
 </table>
